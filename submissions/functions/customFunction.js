@@ -17,10 +17,13 @@ module.exports = function (db) {
     const { captchaToken, email } = req.body;
     const { action } = req.params;
 
-    const response = await axios.post(CAPTCHA_URL, {
-      secret: CAPTCHA_SECRET,
-      response: captchaToken,
-    });
+    const response = await axios.post(
+      CAPTCHA_URL,
+      new URLSearchParams({
+        secret: CAPTCHA_SECRET,
+        response: captchaToken,
+      })
+    );
     if (!response.data.success) {
       return res.send(403);
     }
@@ -30,7 +33,7 @@ module.exports = function (db) {
         .doc()
         .set({ action: action, email: email });
       const doc = await docRef.get();
-      return res.send(200);
+      return res.send({ success: true });
     } catch (error) {
       return res.send(error);
     }
