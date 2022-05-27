@@ -15,7 +15,6 @@ app.use(cors({ origin: true }));
 // build multiple CRUD interfaces:
 //app.get(`${FUNCTION_BASEPATH}/:action`, customFunction.getItem);
 //app.post(`${FUNCTION_BASEPATH}/:action`, customFunction.updateItem);
-//force build
 app.put(`${FUNCTION_BASEPATH}/:action`, customFunction.createItem);
 //app.delete(`${FUNCTION_BASEPATH}/:action`, customFunction.deleteItem);
 //app.get(`${FUNCTION_BASEPATH}`, customFunction.getItems);
