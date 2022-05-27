@@ -30,7 +30,7 @@ jobs:
               echo "PROJECT_ID=personal-349320" >> "$GITHUB_ENV"
               eval "echo \"$(cat .firebaserc.template)\"" > .firebaserc
           else
-              echo "PROJECT_ID=personal-349320-${{github.event.pull_request.base.ref}}" >> "$GITHUB_ENV"
+              echo "PROJECT_ID=personal-349320" >> "$GITHUB_ENV"
               eval "echo \"$(cat .firebaserc.template)\"" > .firebaserc
           fi
       - name: Create props files
